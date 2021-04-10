@@ -14,7 +14,7 @@ class TestController extends Controller
      */
     public function index(Request $request)
     {
-        return response()->json(['hi pidor']);
+        return response()->json([]);
     }
 
     /**
