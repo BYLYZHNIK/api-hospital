@@ -17,6 +17,17 @@ class User extends Authenticatable
     public $timestamps = true;
 
 
+    public static function regist_rules(){
+        return [
+            'name'  => 'required|string|min:2',
+            'last_name'   => 'required|string|min:2',
+            'email'       => 'required|string|email:rfc,strict,filter|unique:users',
+            'password'    => 'required|string|min:4',
+//            'role_id'     => 'required',
+        ];
+    }
+
+
     /**
      * The attributes that are mass assignable.
      *
@@ -24,6 +35,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'last_name',
         'email',
         'password',
     ];

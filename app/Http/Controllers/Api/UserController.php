@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -43,14 +43,14 @@ class UserController extends Controller
             'type' => 'required',
         ]);
 
-        $user = User::findOrFail($id);
+        $user = User::find($id);
 
         $user->update($request->all());
     }
 
     public function destroy($id)
     {
-        $user = User::findOrFail($id);
+        $user = User::find($id);
         $user->delete();
         return response()->json([
             'message' => 'User deleted successfully'
